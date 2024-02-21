@@ -1,0 +1,39 @@
+block {
+  display: flex;
+  gap: 8px;
+  padding: 0 2px;
+
+  &-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.2s linear;
+    width: 36px;
+    height: 36px;
+    outline: none;
+    background: none;
+    border: none;
+    border-radius: 50px;
+
+    &--icon {
+      padding: 0;
+      color: $disabled-icon;
+      transition: color 0.2s linear;
+      width: 20px;
+      height: 20px;
+    }
+
+    &:hover {
+      background-color: $hover-btn--icon !important;
+      &:active {
+        background-color: $pressed-btn--icon !important;
+      }
+    }
+
+    &:hover &--icon {
+      color: $default-icon;
+    }
+  }
+}

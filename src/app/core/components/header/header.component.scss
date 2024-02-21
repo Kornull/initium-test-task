@@ -1,14 +1,15 @@
 .header {
-    display: flex;
-    justify-content: start;
-    width: 100%;
-    height: 90px;
-    padding: 18px 14px 16px;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  height: 80px;
+  padding: 22px 16px 16px;
 
   &-title {
     font-weight: 500;
-    font-size: 26px;
+    font-size: 28px;
     letter-spacing: 0.02px;
+    line-height: 1.14;
     color: #2f7fd5;
   }
 }
