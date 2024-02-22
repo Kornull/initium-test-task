@@ -8,3 +8,13 @@ export interface User {
   email: string;
   phone: string;
 }
+
+export interface UserInfo extends User {
+  id: number;
+  completed: boolean;
+}
+
+export interface ListData {
+  allCompleted: boolean;
+  users: UserInfo[];
+}
