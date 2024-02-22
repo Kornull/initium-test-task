@@ -16,10 +16,10 @@ export class TableComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.listData.users = mockData.users.map((user: User) => {
+    this.listData.users = mockData.users.map((user: User, i: number) => {
       return {
         ...user,
-        id: Date.now(),
+        id: `${i}${user.surname}`,
         completed: false,
       };
     });
