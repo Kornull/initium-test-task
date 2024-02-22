@@ -2,7 +2,9 @@
   <div class="table-btns">
     <app-table-btns></app-table-btns>
     <app-table-filter></app-table-filter>
+    <app-table-sort></app-table-sort>
   </div>
 
-  <app-table-list [userListData]="listData | filterName: onFilterByName() "></app-table-list>
+  <app-table-list
+    [userListData]="listData | filterName: onFilterByName() | sortingPipe: onSorting()"></app-table-list>
 </div>

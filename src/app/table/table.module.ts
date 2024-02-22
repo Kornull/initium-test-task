@@ -11,6 +11,7 @@ import {
   TableListItemComponent,
   TableFilterComponent,
 } from './components/table';
+import { TableSortComponent } from './components/table/table-sort/table-sort.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {
     TableListHeaderComponent,
     TableListItemComponent,
     TableFilterComponent,
+    TableSortComponent,
   ],
   imports: [CommonModule, SharedModule],
   exports: [TableComponent],

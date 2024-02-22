@@ -1,0 +1,14 @@
+<div class="sort">
+  <span class="sort-title">сортировать</span>
+  <select
+    class="sort-input"
+    name="user_profile_color_2"
+    required="required"
+    (click)="changeSelect()"
+    [(ngModel)]="selected">
+    <option value="default">по умолчанию</option>
+    <option value="alphabet">по алфавиту</option>
+    <option value="mail">по почте</option>
+    <option value="phone">по телефону</option>
+  </select>
+</div>

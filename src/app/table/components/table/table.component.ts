@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FilterNameService } from 'src/app/core/services';
+import { FilterNameService, SortingService } from 'src/app/core/services';
 
 import { ListData, User } from 'src/app/core/store';
 
@@ -16,7 +16,10 @@ export class TableComponent implements OnInit {
     users: [],
   };
 
-  constructor(private filterNameService: FilterNameService) {}
+  constructor(
+    private filterNameService: FilterNameService,
+    private sortingService: SortingService
+  ) {}
 
   ngOnInit(): void {
     this.listData.users = mockData.users.map((user: User, i: number) => {
@@ -30,5 +33,9 @@ export class TableComponent implements OnInit {
 
   onFilterByName(): string {
     return this.filterNameService.getFilteredName();
+  }
+
+  onSorting(): string {
+    return this.sortingService.getSortedTitle();
   }
 }

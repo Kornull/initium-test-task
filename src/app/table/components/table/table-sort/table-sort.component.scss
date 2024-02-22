@@ -1,0 +1,11 @@
+.sort {
+  display: flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 10px;
+
+  &-title {
+    display: block;
+    margin: 0 6px;
+  }
+}
