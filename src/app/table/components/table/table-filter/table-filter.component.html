@@ -1,0 +1,14 @@
+<div class="filter">
+  имя
+  <form
+    class="filter-form"
+    appearance="outline">
+    <input
+      class="filter-input"
+      type="text"
+      name="parameterValue"
+      [(ngModel)]="filterByTitle"
+      (keyup)="onTitleSort()"
+      autocomplete="off" />
+  </form>
+</div>

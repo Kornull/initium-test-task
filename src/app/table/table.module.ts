@@ -9,6 +9,7 @@ import {
   TableListComponent,
   TableListHeaderComponent,
   TableListItemComponent,
+  TableFilterComponent,
 } from './components/table';
 
 @NgModule({
@@ -18,6 +19,7 @@ import {
     TableListComponent,
     TableListHeaderComponent,
     TableListItemComponent,
+    TableFilterComponent,
   ],
   imports: [CommonModule, SharedModule],
   exports: [TableComponent],

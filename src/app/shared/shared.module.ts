@@ -6,9 +6,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { FilterNamePipe } from './pipes/filter-name.pipe';
 
 @NgModule({
-  declarations: [],
+  declarations: [FilterNamePipe],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -16,6 +19,8 @@ import { MatTableModule } from '@angular/material/table';
     MatCheckboxModule,
     FormsModule,
     MatTableModule,
+    MatFormFieldModule,
+    MatSelectModule,
   ],
   exports: [
     MatButtonModule,
@@ -23,6 +28,9 @@ import { MatTableModule } from '@angular/material/table';
     MatCheckboxModule,
     FormsModule,
     MatTableModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    FilterNamePipe,
   ],
 })
 export class SharedModule {}

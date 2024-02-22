@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FilterNameService } from 'src/app/core/services';
 
 import { ListData, User } from 'src/app/core/store';
 
@@ -15,6 +16,8 @@ export class TableComponent implements OnInit {
     users: [],
   };
 
+  constructor(private filterNameService: FilterNameService) {}
+
   ngOnInit(): void {
     this.listData.users = mockData.users.map((user: User, i: number) => {
       return {
@@ -23,5 +26,9 @@ export class TableComponent implements OnInit {
         completed: false,
       };
     });
+  }
+
+  onFilterByName(): string {
+    return this.filterNameService.getFilteredName();
   }
 }

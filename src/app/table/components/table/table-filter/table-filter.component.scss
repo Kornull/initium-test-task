@@ -1,0 +1,31 @@
+@import '../../../../../scss/variables';
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 10px;
+
+  &-form {
+    display: flex;
+    align-items: center;
+  }
+
+  &-input {
+    border: 1px solid $disabled-btn;
+    padding: 2px 6px;
+    outline: 1px solid $disabled-btn;
+    height: 20px;
+
+    &:focus {
+      border: 1px solid #3176f5 !important;
+    }
+  }
+  &-title {
+    color: #3176f5;
+    text-decoration: underline;
+    width: auto;
+    font-size: 14px;
+    padding: 0;
+  }
+}
