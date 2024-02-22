@@ -1,0 +1,62 @@
+@import '../../../../scss/variables';
+
+.item-block {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 1210px;
+  padding-left: 10px;
+  gap: 10px;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+  padding: 2px;
+  border-top: 1px solid $disabled-btn;
+}
+.list-header {
+  display: flex;
+  align-items: center;
+  height: 52px;
+}
+.section-list {
+  width: 100%;
+}
+
+::ng-deep
+  .mdc-checkbox
+  .mdc-checkbox__native-control:enabled:checked
+  ~ .mdc-checkbox__background {
+  border-radius: 4px !important;
+  background-color: #4a95f7 !important;
+  border-color: #4a95f7 !important;
+}
+
+::ng-deep
+  .mdc-checkbox
+  .mdc-checkbox__native-control:enabled:indeterminate
+  ~ .mdc-checkbox__background {
+  background-color: #4a95f7 !important;
+  border-color: #4a95f7 !important;
+}
+::ng-deep
+  .mdc-checkbox
+  .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not(
+    [data-indeterminate='true']
+  )
+  ~ .mdc-checkbox__background {
+  border-color: $disabled-icon !important;
+}
+
+input {
+  background: none !important;
+  &:hover {
+    background-color: transparent !important;
+    &:active {
+      background-color: transparent !important;
+    }
+  }
+}

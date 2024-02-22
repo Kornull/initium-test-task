@@ -1,39 +1,43 @@
-block {
+@import '../../../../scss/variables';
+
+.btn {
   display: flex;
-  gap: 8px;
-  padding: 0 2px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s linear;
+  width: 36px;
+  height: 34px;
+  outline: none;
+  background: none;
+  border: none;
+  border-radius: 50px;
+  margin-bottom: 6px;
 
-  &-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+  &-icon {
     padding: 0;
-    transition: background-color 0.2s linear;
-    width: 36px;
-    height: 36px;
-    outline: none;
-    background: none;
-    border: none;
-    border-radius: 50px;
+    color: $disabled-icon;
+    transition: color 0.2s linear;
+    width: 20px;
+    height: 20px;
+  }
 
-    &--icon {
-      padding: 0;
-      color: $disabled-icon;
-      transition: color 0.2s linear;
-      width: 20px;
-      height: 20px;
-    }
-
-    &:hover {
-      background-color: $hover-btn--icon !important;
-      &:active {
-        background-color: $pressed-btn--icon !important;
-      }
-    }
-
-    &:hover &--icon {
-      color: $default-icon;
+  &:hover {
+    background-color: $hover-btn--icon !important;
+    &:active {
+      background-color: $pressed-btn--icon !important;
     }
   }
+
+  &:hover &-icon {
+    color: $default-icon;
+  }
 }
+
+.btns-block {
+  display: flex;
+  gap: 8px;
+  padding: 0 12px;
+}
+

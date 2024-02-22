@@ -1,0 +1,31 @@
+<section class="example-section section-list">
+  <span class="example-list-section list-header">
+    <div class="item-block">
+      <mat-checkbox
+        color="primary"
+        style="width: 36px"
+        [checked]="allComplete"
+        [indeterminate]="someComplete()"
+        (change)="setAll($event.checked)">
+      </mat-checkbox>
+      <app-table-list-header></app-table-list-header>
+    </div>
+  </span>
+  <span class="example-list-section">
+    <ul>
+      <li
+        class="list-item"
+        *ngFor="let user of userListData.users">
+        <div class="item-block">
+          <mat-checkbox
+            color="primary"
+            style="width: 36px"
+            [(ngModel)]="user.completed"
+            (ngModelChange)="updateAllComplete()">
+          </mat-checkbox>
+          <app-table-list-item [user]="user"></app-table-list-item>
+        </div>
+      </li>
+    </ul>
+  </span>
+</section>

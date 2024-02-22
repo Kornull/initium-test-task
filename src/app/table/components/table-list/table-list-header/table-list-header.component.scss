@@ -1,0 +1,50 @@
+.list {
+  &-header {
+    display: flex;
+    align-items: center;
+    height: 52px;
+  }
+  
+  &-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1150px;
+  }
+
+  &-name,
+  &-contacts {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 94px;
+    width: 42%;
+    padding: 0;
+
+    &--info {
+      min-width: 200px;
+      padding: 0;
+      margin: 0;
+    }
+  }
+  &-name {
+    &--info {
+      text-align: left;
+    }
+  }
+
+  &-contacts {
+    justify-content: space-between;
+
+    &--info {
+      text-align: right;
+    }
+  }
+
+  &-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: #2f4c97;
+    margin: 0;
+  }
+}
