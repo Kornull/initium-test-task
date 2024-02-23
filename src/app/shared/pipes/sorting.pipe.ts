@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ChangeDataService } from 'src/app/core/services';
 
 import { ListData, SortedActions, UserInfo } from 'src/app/core/store';
 
@@ -9,11 +8,13 @@ import { ListData, SortedActions, UserInfo } from 'src/app/core/store';
 export class SortingPipe implements PipeTransform {
   phoneNum: UserInfo[] = [];
 
+  oldData: UserInfo[] = [];
+
   notPhoneNum: UserInfo[] = [];
 
-  constructor(private cangeData: ChangeDataService) {}
-
   transform(data: ListData, sort: string = ''): ListData {
+    this.oldData = [...data.users];
+
     switch (sort) {
       case SortedActions.ALPHABET:
         return {
@@ -45,7 +46,7 @@ export class SortingPipe implements PipeTransform {
       default:
         return {
           ...data,
-          users: [...this.cangeData.getClients()],
+          users: [...this.oldData],
         };
     }
   }
