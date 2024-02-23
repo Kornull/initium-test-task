@@ -19,9 +19,9 @@ export class SortingPipe implements PipeTransform {
       case SortedActions.PHONE:
         return {
           ...data,
-          users: data.users.sort((a: UserInfo, b: UserInfo) =>
-            a.phone.toString().slice(1) > b.phone.toString().slice(1) ? 1 : -1
-          ),
+          users: data.users.sort((a: UserInfo, b: UserInfo) => {
+            return a.phone > b.phone ? 1 : -1;
+          }),
         };
       case SortedActions.MAIL:
         return {
