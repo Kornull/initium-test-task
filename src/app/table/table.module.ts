@@ -12,6 +12,7 @@ import {
   TableFilterComponent,
 } from './components/table';
 import { TableSortComponent } from './components/table/table-sort/table-sort.component';
+import { TableFormComponent } from './components/table/table-btns/table-form/table-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TableSortComponent } from './components/table/table-sort/table-sort.com
     TableFilterComponent,
     TableSortComponent,
   ],
-  imports: [CommonModule, SharedModule],
+
+  imports: [CommonModule, SharedModule, TableFormComponent],
   exports: [TableComponent],
 })
 export class TableModule {}

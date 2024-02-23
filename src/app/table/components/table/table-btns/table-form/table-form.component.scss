@@ -1,0 +1,80 @@
+@import '../../../../../../scss/variables';
+
+.section-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 448px;
+  height: 592px;
+  padding: 40px;
+  border-radius: 20px;
+  background: $white;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+
+  &-title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0em;
+    color: $title-text;
+  }
+
+  &-btn {
+    border-radius: 37px;
+    padding: 16px 22px;
+    width: 134px;
+    height: 53px;
+    border: none;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s linear;
+
+    &--reset {
+      background: transparent;
+      color: $default-btn;
+
+      &:hover {
+        background: $hover-btn--light;
+      }
+
+      &:active {
+        background: $pressed-btn--light;
+      }
+    }
+
+    &--create {
+      background: $default-btn;
+      color: $white;
+
+      &:hover {
+        background: $hover-btn;
+      }
+
+      &:active {
+        background: $pressed-btn;
+      }
+    }
+  }
+}
+
+.buttons-block {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2px;
+  width: 100%;
+}
+
+.error-msq {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  font-size: 12px;
+  text-align: left;
+}

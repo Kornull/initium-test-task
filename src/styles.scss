@@ -9,7 +9,6 @@
   padding: 0;
 }
 
-
 ul,
 ol,
 li {
@@ -26,4 +25,12 @@ body {
   height: 100%;
   margin: 0;
   padding: 10px;
+}
+
+mat-dialog-container {
+  background-color: transparent !important;
+  &.mat-mdc-dialog-container .mdc-dialog__surface {
+    border-radius: 20px;
+    background: transparent !important;
+  }
 }

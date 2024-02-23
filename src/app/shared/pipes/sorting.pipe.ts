@@ -1,6 +1,5 @@
-/* eslint-disable no-self-compare */
 import { Pipe, PipeTransform } from '@angular/core';
-import { LocalStoreService } from 'src/app/core/services';
+import { ChangeDataService } from 'src/app/core/services';
 
 import { ListData, SortedActions, UserInfo } from 'src/app/core/store';
 
@@ -8,7 +7,7 @@ import { ListData, SortedActions, UserInfo } from 'src/app/core/store';
   name: 'sortingPipe',
 })
 export class SortingPipe implements PipeTransform {
-  constructor(private localStore: LocalStoreService) {}
+  constructor(private cangeData: ChangeDataService) {}
 
   transform(data: ListData, sort: string = ''): ListData {
     switch (sort) {
@@ -36,7 +35,7 @@ export class SortingPipe implements PipeTransform {
       default:
         return {
           ...data,
-          users: [...this.localStore.getClientsByLocalStore()],
+          users: [...this.cangeData.geClients()],
         };
     }
   }

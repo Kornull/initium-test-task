@@ -1,0 +1,102 @@
+<div class="section-form">
+  <h2 class="form-title">{{ title }}</h2>
+  <form
+    class="form"
+    (submit)="onSubmit()"
+    [formGroup]="createUser">
+    <mat-form-field appearance="outline">
+      <mat-label>Имя</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="name"
+        placeholder="Имя" />
+      <mat-error
+        class="error-msq"
+        *ngIf="
+          (createUser.get('name')!.hasError('minlength') &&
+            createUser.get('name')?.touched) ||
+          (!(
+            createUser.get('name')!.hasError('minlength') &&
+            !createUser.get('name')?.valid
+          ) &&
+            !createUser.get('name')!.hasError('maxlength'))
+        "
+        >Минимальное количество символов: 2</mat-error
+      >
+      <mat-error
+        class="error-msq"
+        *ngIf="createUser.get('name')!.hasError('maxlength')"
+        >Максимальное количество символов: 18</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Фамилия</mat-label>
+      <input
+        matInput
+        formControlName="surname"
+        type="text"
+        placeholder="Фамилия" />
+      <mat-error
+        class="error-msq"
+        *ngIf="
+          (createUser.get('surname')!.hasError('minlength') &&
+            createUser.get('surname')?.touched) ||
+          (!(
+            createUser.get('surname')!.hasError('minlength') &&
+            !createUser.get('surname')?.valid
+          ) &&
+            !createUser.get('surname')!.hasError('maxlength'))
+        "
+        >Минимальное количество символов: 2</mat-error
+      >
+      <mat-error
+        class="error-msq"
+        *ngIf="createUser.get('surname')!.hasError('maxlength')"
+        >Максимальное количество символов: 18</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>E-mail</mat-label>
+      <input
+        matInput
+        formControlName="email"
+        type="email"
+        placeholder="E-mail" />
+      <mat-error
+        class="error-msq"
+        *ngIf="
+          !createUser.get('email')!.valid && createUser.get('email')!.touched
+        "
+        >Некорректный адрес</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Телефон</mat-label>
+      <input
+        matInput
+        type="tel"
+        formControlName="phone"
+        placeholder="Телефон" />
+      <mat-error
+        class="error-msq"
+        *ngIf="
+          !createUser.get('phone')!.valid && createUser.get('phone')!.touched
+        "
+        >Некорректный номер телефона</mat-error
+      >
+    </mat-form-field>
+    <div class="buttons-block">
+      <button
+        class="form-btn form-btn--reset"
+        (click)="closeModal()">
+        Отмена
+      </button>
+      <button
+        class="form-btn form-btn--create"
+        type="submit">
+        Сохранить
+      </button>
+    </div>
+  </form>
+</div>

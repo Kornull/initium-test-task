@@ -8,8 +8,11 @@ import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDialogModule } from '@angular/material/dialog';
+
 import { FilterNamePipe } from './pipes/filter-name.pipe';
 import { SortingPipe } from './pipes/sorting.pipe';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [FilterNamePipe, SortingPipe],
@@ -22,6 +25,8 @@ import { SortingPipe } from './pipes/sorting.pipe';
     MatTableModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatDialogModule,
+    ModalComponent,
   ],
   exports: [
     MatButtonModule,
@@ -33,6 +38,7 @@ import { SortingPipe } from './pipes/sorting.pipe';
     MatSelectModule,
     FilterNamePipe,
     SortingPipe,
+    ModalComponent,
   ],
 })
 export class SharedModule {}
