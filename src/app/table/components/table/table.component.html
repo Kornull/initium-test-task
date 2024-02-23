@@ -6,5 +6,7 @@
   </div>
 
   <app-table-list
-    [userListData]="listData | filterName: onFilterByName() | sortingPipe: onSorting()"></app-table-list>
+    [userListData]="
+      listData | sortingPipe: onSorting() | filterName: onFilterByName()
+    "></app-table-list>
 </div>
