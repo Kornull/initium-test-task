@@ -4,3 +4,7 @@ export enum SortedActions {
   MAIL = 'mail',
   PHONE = 'phone',
 }
+
+export enum LocalStorageKeys {
+  CLIENTS_KEY = 'full-client-list',
+}

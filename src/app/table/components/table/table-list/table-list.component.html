@@ -15,7 +15,8 @@
     <ul>
       <li
         class="list-item"
-        *ngFor="let user of userListData.users">
+        *ngFor="let user of userListData.users"
+        [ngClass]="{'touched': user.completed}">
         <div class="item-block">
           <mat-checkbox
             color="primary"

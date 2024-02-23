@@ -27,6 +27,10 @@
   width: 100%;
 }
 
+.touched {
+  background: #cee1f7;
+}
+
 ::ng-deep
   .mdc-checkbox
   .mdc-checkbox__native-control:enabled:checked
