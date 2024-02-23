@@ -94,7 +94,8 @@
       </button>
       <button
         class="form-btn form-btn--create"
-        type="submit">
+        type="submit"
+        [disabled]="!createUser.valid">
         Сохранить
       </button>
     </div>

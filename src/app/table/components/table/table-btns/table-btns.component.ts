@@ -3,7 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
-import { TableFormComponent } from './table-form/table-form.component';
+import { FormKeys } from 'src/app/core/store';
+import { TableFormComponent } from 'src/app/shared/components';
 
 @Component({
   selector: 'app-table-btns',
@@ -27,7 +28,11 @@ export class TableBtnsComponent {
   }
 
   createUser() {
-    this.dialog.open(TableFormComponent, { panelClass: 'borderless-dialog' });
+    this.dialog.open(TableFormComponent, {
+      data: {
+        formKey: FormKeys.CREATE_FORM_KEY,
+      },
+    });
   }
 
   removeUser() {

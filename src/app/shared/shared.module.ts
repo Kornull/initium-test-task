@@ -12,7 +12,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { FilterNamePipe } from './pipes/filter-name.pipe';
 import { SortingPipe } from './pipes/sorting.pipe';
-import { ModalComponent } from './components/modal/modal.component';
+import { ModalComponent } from './components';
 
 @NgModule({
   declarations: [FilterNamePipe, SortingPipe],

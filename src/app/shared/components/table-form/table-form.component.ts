@@ -1,17 +1,20 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+
 import { ChangeDataService } from 'src/app/core/services';
-import { UserInfo } from 'src/app/core/store';
+
+import { FormKeys, ModalData, UserInfo } from 'src/app/core/store';
+
 import { mailValidator } from 'src/app/shared/validators/mail.validator';
 import { phoneValidator } from 'src/app/shared/validators/phone.validator';
 
@@ -29,7 +32,9 @@ import { phoneValidator } from 'src/app/shared/validators/phone.validator';
   ],
 })
 export class TableFormComponent implements OnInit {
-  title: string = 'Редактирование';
+  title: string;
+
+  isUpdateForm: boolean;
 
   newUser!: UserInfo;
 
@@ -38,8 +43,17 @@ export class TableFormComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private fb: FormBuilder,
-    private changeData: ChangeDataService
-  ) {}
+    private changeData: ChangeDataService,
+    @Inject(MAT_DIALOG_DATA)
+    public data: ModalData
+  ) {
+    this.title =
+      data.formKey === FormKeys.CREATE_FORM_KEY
+        ? 'Новый клиент'
+        : 'Редактирование';
+
+    this.isUpdateForm = data.formKey === FormKeys.CHANGE_FORM_KEY;
+  }
 
   ngOnInit(): void {
     this.createUser = this.fb.group({

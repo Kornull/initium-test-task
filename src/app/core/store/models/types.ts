@@ -8,3 +8,13 @@ export enum SortedActions {
 export enum LocalStorageKeys {
   CLIENTS_KEY = 'full-client-list',
 }
+
+export enum FormKeys {
+  CREATE_FORM_KEY = 'create',
+  CHANGE_FORM_KEY = 'change',
+}
+
+export type ModalData = {
+  count: number;
+  formKey: string;
+};

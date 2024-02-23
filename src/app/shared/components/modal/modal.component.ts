@@ -10,9 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgIf } from '@angular/common';
 
-export type ModalData = {
-  count: number;
-};
+import { ModalData } from 'src/app/core/store';
 
 @Component({
   selector: 'app-modal',

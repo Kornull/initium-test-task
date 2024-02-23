@@ -1,4 +1,4 @@
-@import '../../../../../../scss/variables';
+@import '../../../../scss/variables';
 
 .section-form {
   display: flex;
@@ -77,4 +77,12 @@
   width: 100%;
   font-size: 12px;
   text-align: left;
+}
+
+:disabled {
+  cursor: default;
+  background: #d8dee9;
+  &:hover {
+    background: #d8dee9;
+  }
 }
