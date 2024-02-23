@@ -33,13 +33,10 @@ export class TableComponent implements OnInit {
     dataService.clients$
       .pipe(
         tap(clients => {
-          console.log('clients', clients);
           this.listData = {
             ...this.listData,
             users: [...clients],
           };
-
-          console.log('this.listData', this.listData);
         })
       )
       .subscribe();

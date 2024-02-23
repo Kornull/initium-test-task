@@ -7,6 +7,10 @@ import { ListData, SortedActions, UserInfo } from 'src/app/core/store';
   name: 'sortingPipe',
 })
 export class SortingPipe implements PipeTransform {
+  phoneNum: UserInfo[] = [];
+
+  notPhoneNum: UserInfo[] = [];
+
   constructor(private cangeData: ChangeDataService) {}
 
   transform(data: ListData, sort: string = ''): ListData {
@@ -19,11 +23,17 @@ export class SortingPipe implements PipeTransform {
           ),
         };
       case SortedActions.PHONE:
+        this.phoneNum = data.users.filter(user => user.phone.length);
+        this.notPhoneNum = data.users.filter(user => !user.phone.length);
+
         return {
           ...data,
-          users: data.users.sort((a: UserInfo, b: UserInfo) => {
-            return a.phone > b.phone ? 1 : -1;
-          }),
+          users: [
+            ...this.phoneNum.sort((a: UserInfo, b: UserInfo) => {
+              return a.phone > b.phone ? 1 : -1;
+            }),
+            ...this.notPhoneNum,
+          ],
         };
       case SortedActions.MAIL:
         return {
