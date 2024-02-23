@@ -17,19 +17,41 @@ export class ChangeDataService {
 
   constructor(private storeService: LocalStoreService) {}
 
-  geClients() {
+  getClients() {
     return this.clientsInfo;
   }
 
-  updateClients(clientsList: UserInfo[]) {
+  updateClientsList(clientsList: UserInfo[]) {
     this.clientsInfo = clientsList;
-    this.clients.next(clientsList);
-    this.storeService.setClientsToLocalStore(clientsList);
+
+    this.changeList(this.clientsInfo);
   }
 
   addUser(user: UserInfo) {
     this.clientsInfo = [...this.clientsInfo, user];
-    this.clients.next([...this.clientsInfo]);
-    this.storeService.setClientsToLocalStore(this.clientsInfo);
+
+    this.changeList(this.clientsInfo);
+  }
+
+  updateClientInfo(userNewData: UserInfo) {
+    this.clientsInfo = this.clientsInfo.map((user: UserInfo) => {
+      if (user.id === userNewData.id) {
+        return {
+          name: userNewData.name,
+          surname: userNewData.surname,
+          email: userNewData.email,
+          phone: userNewData.phone,
+          id: userNewData.id,
+          completed: userNewData.completed,
+        };
+      }
+      return user;
+    });
+    this.changeList(this.clientsInfo);
+  }
+
+  private changeList(dataList: UserInfo[]) {
+    this.clients.next(dataList);
+    this.storeService.setClientsToLocalStore(dataList);
   }
 }

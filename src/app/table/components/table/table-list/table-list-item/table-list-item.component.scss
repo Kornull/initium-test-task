@@ -1,53 +1,67 @@
-  
-  .list {  
-    &-info {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 1150px;
-  
-      &--title {
-        font-size: 14px;
-        line-height: 1.2;
-        letter-spacing: 0.002px;
-        margin: 0;
-      }
-    }
-  
-  
-    &-name,
-    &-contacts {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 94px;
-      width: 42%;
-      padding: 0;
-  
-      &--info {
-        min-width: 200px;
-        padding: 0;
-        margin: 0;
-      }
-    }
-    &-name {
-      &--info {
-        text-align: left;
-      }
-    }
-  
-    &-contacts {
-      justify-content: space-between;
-  
-      &--info {
-        text-align: right;
-      }
-    }
-  
-    &-title {
-      font-size: 12px;
-      font-weight: 500;
-      color: #2f4c97;
+@import '../../../../../../scss/variables';
+
+.list {
+  &-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1150px;
+
+    &--title {
+      font-size: 14px;
+      line-height: 1.2;
+      letter-spacing: 0.002px;
       margin: 0;
     }
   }
+
+  &-name,
+  &-contacts {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 94px;
+    width: 42%;
+    padding: 0;
+
+    &--info {
+      min-width: 200px;
+      padding: 0;
+      margin: 0;
+    }
+  }
+  &-name {
+    &--info {
+      text-align: left;
+    }
+  }
+
+  &-contacts {
+    justify-content: space-between;
+
+    &--info {
+      text-align: right;
+    }
+  }
+
+  &-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: #2f4c97;
+    margin: 0;
+  }
+
+  &-btn {
+    cursor: pointer;
+    background: none;
+    color: $default-btn;
+    padding: 0;
+    min-width: 10px;
+    border: none;
+    height: auto;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

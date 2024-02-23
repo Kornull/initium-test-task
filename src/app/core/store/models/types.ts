@@ -17,4 +17,10 @@ export enum FormKeys {
 export type ModalData = {
   count: number;
   formKey: string;
+  completed: false;
+  email: string;
+  id: string;
+  name: string;
+  phone: string;
+  surname: string;
 };

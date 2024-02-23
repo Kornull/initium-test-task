@@ -58,7 +58,7 @@ export class TableFormComponent implements OnInit {
   ngOnInit(): void {
     this.createUser = this.fb.group({
       name: [
-        '',
+        this.isUpdateForm ? this.data.name : '',
         [
           Validators.minLength(2),
           Validators.maxLength(18),
@@ -66,15 +66,18 @@ export class TableFormComponent implements OnInit {
         ],
       ],
       surname: [
-        '',
+        this.isUpdateForm ? this.data.surname : '',
         [
           Validators.minLength(2),
           Validators.maxLength(18),
           Validators.required,
         ],
       ],
-      email: ['', [Validators.email, mailValidator()]],
-      phone: ['', [phoneValidator()]],
+      email: [
+        this.isUpdateForm ? this.data.email : '',
+        [Validators.email, mailValidator()],
+      ],
+      phone: [this.isUpdateForm ? this.data.phone : '', [phoneValidator()]],
     });
   }
 
@@ -92,11 +95,15 @@ export class TableFormComponent implements OnInit {
         surname: `${surname.slice(0, 1).toUpperCase()}${surname.slice(1)}`,
         email: this.createUser.controls['email'].value,
         phone: this.createUser.controls['phone'].value,
-        id: `${Date.now()}`,
-        completed: false,
+        id: this.isUpdateForm ? this.data.id : `${Date.now()}`,
+        completed: this.isUpdateForm ? this.data.completed : false,
       };
 
-      this.changeData.addUser(this.newUser);
+      if (this.isUpdateForm) {
+        this.changeData.updateClientInfo(this.newUser);
+      } else {
+        this.changeData.addUser(this.newUser);
+      }
       this.closeModal();
     }
   }

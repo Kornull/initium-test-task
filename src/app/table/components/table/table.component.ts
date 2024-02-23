@@ -45,7 +45,7 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
     const clientList = this.storeService.getClientsByLocalStore();
     if (clientList.length) {
-      this.updateData.updateClients(clientList);
+      this.updateData.updateClientsList(clientList);
     } else {
       this.request
         .getUsersInfo()
@@ -61,7 +61,7 @@ export class TableComponent implements OnInit {
                 };
               });
             }
-            this.updateData.updateClients(listClients);
+            this.updateData.updateClientsList(listClients);
           })
         )
         .subscribe();
