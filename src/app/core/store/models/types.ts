@@ -12,6 +12,7 @@ export enum LocalStorageKeys {
 export enum FormKeys {
   CREATE_FORM_KEY = 'create',
   CHANGE_FORM_KEY = 'change',
+  DELETE_USER_KEY = 'delete',
 }
 
 export type ModalData = {

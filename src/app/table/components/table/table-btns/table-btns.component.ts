@@ -4,7 +4,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { FormKeys } from 'src/app/core/store';
-import { TableFormComponent } from 'src/app/shared/components';
+import {
+  DeleteUserComponent,
+  TableFormComponent,
+} from 'src/app/shared/components';
 
 @Component({
   selector: 'app-table-btns',
@@ -36,6 +39,6 @@ export class TableBtnsComponent {
   }
 
   removeUser() {
-    this.dialog.open(TableFormComponent);
+    this.dialog.open(DeleteUserComponent);
   }
 }

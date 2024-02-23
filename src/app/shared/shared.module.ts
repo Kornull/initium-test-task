@@ -12,7 +12,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { FilterNamePipe } from './pipes/filter-name.pipe';
 import { SortingPipe } from './pipes/sorting.pipe';
-import { ModalComponent } from './components';
 
 @NgModule({
   declarations: [FilterNamePipe, SortingPipe],
@@ -26,7 +25,6 @@ import { ModalComponent } from './components';
     MatFormFieldModule,
     MatSelectModule,
     MatDialogModule,
-    ModalComponent,
   ],
   exports: [
     MatButtonModule,
@@ -38,7 +36,6 @@ import { ModalComponent } from './components';
     MatSelectModule,
     FilterNamePipe,
     SortingPipe,
-    ModalComponent,
   ],
 })
 export class SharedModule {}

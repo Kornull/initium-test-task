@@ -1,0 +1,74 @@
+@import '../../../../scss/variables';
+
+.remove {
+  width: 448px;
+  height: 300px;
+  background: $white;
+  padding: 40px;
+  margin: 0;
+
+  &-title {
+    width: 100%;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0em;
+    color: $title-text;
+    margin: 0 0 28px;
+  }
+
+  &-subtitle {
+    width: 100%;
+    height: 96px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 122%;
+    letter-spacing: 0.01em;
+    color: $title-text;
+    margin-bottom: 12px;
+  }
+  &-btn {
+    border-radius: 37px;
+    padding: 16px 22px;
+    width: 134px;
+    height: 53px;
+    border: none;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s linear;
+
+    &--reset {
+      background: transparent;
+      color: $default-btn;
+
+      &:hover {
+        background: $hover-btn--light;
+      }
+
+      &:active {
+        background: $pressed-btn--light;
+      }
+    }
+
+    &--del {
+      background: $default-btn;
+      color: $white;
+
+      &:hover {
+        background: $hover-btn;
+      }
+
+      &:active {
+        background: $pressed-btn;
+      }
+    }
+  }
+}
+
+.buttons-block {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2px;
+  width: 100%;
+}

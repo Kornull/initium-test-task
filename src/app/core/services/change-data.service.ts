@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 import { LocalStoreService } from './local-store.service';
 
@@ -11,7 +11,11 @@ import { UserInfo } from '../store';
 export class ChangeDataService {
   private clients = new Subject<UserInfo[]>();
 
+  private selectedUsers = new BehaviorSubject<UserInfo[]>([]);
+
   clients$ = this.clients.asObservable();
+
+  selectedUsers$ = this.selectedUsers.asObservable();
 
   clientsInfo: UserInfo[] = [];
 
@@ -47,6 +51,21 @@ export class ChangeDataService {
       }
       return user;
     });
+    this.changeList(this.clientsInfo);
+  }
+
+  setSelecteUsers(users: UserInfo[]) {
+    this.clientsInfo = [...users];
+    this.selectedUsers.next([
+      ...this.clientsInfo.filter(client => client.completed),
+    ]);
+  }
+
+  removeSelectedUsers() {
+    this.clientsInfo = [
+      ...this.clientsInfo.filter(client => !client.completed),
+    ];
+
     this.changeList(this.clientsInfo);
   }
 

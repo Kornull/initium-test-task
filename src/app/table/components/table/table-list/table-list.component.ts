@@ -1,3 +1,4 @@
+import { ChangeDataService } from 'src/app/core/services';
 import { Component, Input } from '@angular/core';
 import { ListData, UserInfo } from 'src/app/core/store';
 
@@ -11,10 +12,14 @@ export class TableListComponent {
 
   allComplete: boolean = false;
 
+  constructor(private changeData: ChangeDataService) {}
+
   updateAllComplete() {
     this.allComplete =
       this.userListData.users != null &&
       this.userListData.users.every(t => t.completed);
+
+    this.updateSelecedUsers();
   }
 
   someComplete(): boolean {
@@ -32,5 +37,10 @@ export class TableListComponent {
         completed,
       };
     });
+    this.updateSelecedUsers();
+  }
+
+  updateSelecedUsers() {
+    this.changeData.setSelecteUsers(this.userListData.users);
   }
 }
