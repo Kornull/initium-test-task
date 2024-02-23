@@ -45,7 +45,7 @@ export class SortingPipe implements PipeTransform {
       default:
         return {
           ...data,
-          users: [...this.cangeData.geClients()],
+          users: [...this.cangeData.getClients()],
         };
     }
   }
