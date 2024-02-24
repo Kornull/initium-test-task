@@ -70,14 +70,17 @@ export class ChangeDataService {
   }
 
   deleteSelectedMarker(): void {
-    this.clientsInfo = [
-      ...this.clientsInfo.map(client => {
-        return {
-          ...client,
-          completed: false,
-        };
-      }),
-    ];
+    const selected = this.clientsInfo.find(client => client.completed === true);
+    if (selected !== undefined) {
+      this.clientsInfo = [
+        ...this.clientsInfo.map(client => {
+          return {
+            ...client,
+            completed: false,
+          };
+        }),
+      ];
+    }
 
     this.changeList(this.clientsInfo);
   }
