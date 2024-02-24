@@ -29,11 +29,15 @@ body {
 }
 
 mat-dialog-container {
-  background-color: transparent !important;
+  background-color: none !important;
   &.mat-mdc-dialog-container .mdc-dialog__surface {
+    // box-shadow: none !important;
+    margin-top: 98px !important;
+    top: -6px !important;
     border-radius: 20px;
     min-height: 0;
-    background: transparent !important;
+    border: none;
+    background: none !important;
   }
 }
 
