@@ -31,9 +31,8 @@ body {
 mat-dialog-container {
   background-color: none !important;
   &.mat-mdc-dialog-container .mdc-dialog__surface {
-    // box-shadow: none !important;
     margin-top: 98px !important;
-    top: -6px !important;
+    top: 0 !important;
     border-radius: 20px;
     min-height: 0;
     border: none;

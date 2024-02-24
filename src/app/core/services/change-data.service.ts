@@ -69,6 +69,19 @@ export class ChangeDataService {
     this.changeList(this.clientsInfo);
   }
 
+  deleteSelectedMarker(): void {
+    this.clientsInfo = [
+      ...this.clientsInfo.map(client => {
+        return {
+          ...client,
+          completed: false,
+        };
+      }),
+    ];
+
+    this.changeList(this.clientsInfo);
+  }
+
   private changeList(dataList: UserInfo[]): void {
     this.clients.next(dataList);
     this.selectedUsers.next([]);

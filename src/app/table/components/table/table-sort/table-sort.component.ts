@@ -25,6 +25,7 @@ export class TableSortComponent {
   }
 
   changeSelect() {
+    this.changeData.deleteSelectedMarker();
     this.sortingService.setSortingData(this.selected);
   }
 }
