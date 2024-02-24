@@ -80,9 +80,6 @@
 }
 
 :disabled {
-  cursor: default;
+  pointer-events: none;
   background: #d8dee9;
-  &:hover {
-    background: #d8dee9;
-  }
 }

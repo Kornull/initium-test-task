@@ -24,6 +24,7 @@
 
   &:hover {
     background-color: $hover-btn--icon !important;
+
     &:active {
       background-color: $pressed-btn--icon !important;
     }
@@ -38,4 +39,8 @@
   display: flex;
   gap: 8px;
   padding: 0 12px;
+}
+
+:disabled {
+  pointer-events: none;
 }

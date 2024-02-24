@@ -8,7 +8,8 @@
   </button>
   <button
     class="btn"
-    (click)="removeUser()">
+    (click)="removeUser()"
+    [disabled]="isDisabledBtn">
     <mat-icon
       class="btn-icon"
       svgIcon="delete-icon"></mat-icon>

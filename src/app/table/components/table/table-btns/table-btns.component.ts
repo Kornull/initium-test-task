@@ -1,3 +1,4 @@
+import { ChangeDataService } from 'src/app/core/services';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -10,6 +11,7 @@ import {
 } from 'src/app/shared/components';
 
 import { FormKeys } from 'src/app/core/store';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-table-btns',
@@ -17,10 +19,13 @@ import { FormKeys } from 'src/app/core/store';
   styleUrls: ['./table-btns.component.scss'],
 })
 export class TableBtnsComponent {
+  isDisabledBtn: boolean = true;
+
   constructor(
     iconRegistry: MatIconRegistry,
     sanitizer: DomSanitizer,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private changeData: ChangeDataService
   ) {
     iconRegistry.addSvgIcon(
       'delete-icon',
@@ -30,6 +35,10 @@ export class TableBtnsComponent {
       'add-icon',
       sanitizer.bypassSecurityTrustResourceUrl('assets/icons/add.svg')
     );
+
+    changeData.selectedUsers$
+      .pipe(tap(listClients => (this.isDisabledBtn = listClients.length === 0)))
+      .subscribe();
   }
 
   createUser(): void {
