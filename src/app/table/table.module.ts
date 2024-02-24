@@ -4,15 +4,15 @@ import { CommonModule } from '@angular/common';
 import { TableComponent } from './components/table/table.component';
 
 import { SharedModule } from '../shared/shared.module';
+
 import {
   TableBtnsComponent,
   TableListComponent,
   TableListHeaderComponent,
   TableListItemComponent,
   TableFilterComponent,
+  TableSortComponent,
 } from './components/table';
-import { TableSortComponent } from './components/table/table-sort/table-sort.component';
-import { TableFormComponent } from '../shared/components/table-form/table-form.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { TableFormComponent } from '../shared/components/table-form/table-form.c
     TableSortComponent,
   ],
 
-  imports: [CommonModule, SharedModule, TableFormComponent],
+  imports: [CommonModule, SharedModule],
   exports: [TableComponent],
 })
 export class TableModule {}

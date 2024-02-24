@@ -1,7 +1,10 @@
 import { Component, Input } from '@angular/core';
+
 import { MatDialog } from '@angular/material/dialog';
-import { FormKeys, UserInfo } from 'src/app/core/store';
+
 import { TableFormComponent } from 'src/app/shared/components';
+
+import { FormKeys, UserInfo } from 'src/app/core/store';
 
 @Component({
   selector: 'app-table-list-item',
@@ -13,7 +16,7 @@ export class TableListItemComponent {
 
   constructor(public dialog: MatDialog) {}
 
-  changeUserData() {
+  changeUserData(): void {
     this.dialog.open(TableFormComponent, {
       data: {
         formKey: FormKeys.CHANGE_FORM_KEY,

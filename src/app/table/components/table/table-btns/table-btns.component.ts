@@ -3,11 +3,13 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
-import { FormKeys } from 'src/app/core/store';
+
 import {
   DeleteUserComponent,
   TableFormComponent,
 } from 'src/app/shared/components';
+
+import { FormKeys } from 'src/app/core/store';
 
 @Component({
   selector: 'app-table-btns',
@@ -30,7 +32,7 @@ export class TableBtnsComponent {
     );
   }
 
-  createUser() {
+  createUser(): void {
     this.dialog.open(TableFormComponent, {
       data: {
         formKey: FormKeys.CREATE_FORM_KEY,
@@ -38,7 +40,7 @@ export class TableBtnsComponent {
     });
   }
 
-  removeUser() {
+  removeUser(): void {
     this.dialog.open(DeleteUserComponent);
   }
 }

@@ -1,5 +1,6 @@
 import { ChangeDataService } from 'src/app/core/services';
 import { Component, Input } from '@angular/core';
+
 import { ListData, UserInfo } from 'src/app/core/store';
 
 @Component({
@@ -14,7 +15,7 @@ export class TableListComponent {
 
   constructor(private changeData: ChangeDataService) {}
 
-  updateAllComplete() {
+  updateAllComplete(): void {
     this.allComplete =
       this.userListData.users != null &&
       this.userListData.users.every(t => t.completed);
@@ -29,7 +30,7 @@ export class TableListComponent {
     );
   }
 
-  setAll(completed: boolean) {
+  setAll(completed: boolean): void {
     this.allComplete = completed;
     this.userListData.users = this.userListData.users.map((user: UserInfo) => {
       return {
@@ -40,7 +41,7 @@ export class TableListComponent {
     this.updateSelecedUsers();
   }
 
-  updateSelecedUsers() {
+  updateSelecedUsers(): void {
     this.changeData.setSelecteUsers(this.userListData.users);
   }
 }

@@ -81,11 +81,11 @@ export class TableFormComponent implements OnInit {
     });
   }
 
-  closeModal() {
+  closeModal(): void {
     this.dialog.closeAll();
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.createUser.valid) {
       const name = this.createUser.controls['name'].value;
       const surname = this.createUser.controls['surname'].value;

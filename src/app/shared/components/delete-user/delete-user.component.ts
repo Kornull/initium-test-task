@@ -35,11 +35,11 @@ export class DeleteUserComponent implements OnInit, OnDestroy {
     this.selectedUsersListSubscriber$.unsubscribe();
   }
 
-  closeModal() {
+  closeModal(): void {
     this.dialog.closeAll();
   }
 
-  removeClients() {
+  removeClients(): void {
     this.changeData.removeSelectedUsers();
     this.closeModal();
   }

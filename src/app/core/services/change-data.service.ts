@@ -21,23 +21,23 @@ export class ChangeDataService {
 
   constructor(private storeService: LocalStoreService) {}
 
-  getClients() {
+  getClients(): UserInfo[] {
     return this.clientsInfo;
   }
 
-  updateClientsList(clientsList: UserInfo[]) {
+  updateClientsList(clientsList: UserInfo[]): void {
     this.clientsInfo = clientsList;
 
     this.changeList(this.clientsInfo);
   }
 
-  addUser(user: UserInfo) {
+  addUser(user: UserInfo): void {
     this.clientsInfo = [...this.clientsInfo, user];
 
     this.changeList(this.clientsInfo);
   }
 
-  updateClientInfo(userNewData: UserInfo) {
+  updateClientInfo(userNewData: UserInfo): void {
     this.clientsInfo = this.clientsInfo.map((user: UserInfo) => {
       if (user.id === userNewData.id) {
         return {
@@ -54,14 +54,14 @@ export class ChangeDataService {
     this.changeList(this.clientsInfo);
   }
 
-  setSelecteUsers(users: UserInfo[]) {
+  setSelecteUsers(users: UserInfo[]): void {
     this.clientsInfo = [...users];
     this.selectedUsers.next([
       ...this.clientsInfo.filter(client => client.completed),
     ]);
   }
 
-  removeSelectedUsers() {
+  removeSelectedUsers(): void {
     this.clientsInfo = [
       ...this.clientsInfo.filter(client => !client.completed),
     ];
@@ -69,7 +69,7 @@ export class ChangeDataService {
     this.changeList(this.clientsInfo);
   }
 
-  private changeList(dataList: UserInfo[]) {
+  private changeList(dataList: UserInfo[]): void {
     this.clients.next(dataList);
     this.storeService.setClientsToLocalStore(dataList);
   }
