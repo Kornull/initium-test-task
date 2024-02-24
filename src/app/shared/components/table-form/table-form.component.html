@@ -4,7 +4,9 @@
     class="form"
     (submit)="onSubmit()"
     [formGroup]="createUser">
-    <mat-form-field appearance="outline">
+    <mat-form-field
+      appearance="outline"
+      [ngClass]="{ filled: createUser.get('name')!.valid }">
       <mat-label>Имя</mat-label>
       <input
         matInput
@@ -30,7 +32,9 @@
         >Максимальное количество символов: 18</mat-error
       >
     </mat-form-field>
-    <mat-form-field appearance="outline">
+    <mat-form-field
+      appearance="outline"
+      [ngClass]="{ filled: createUser.get('surname')!.valid }">
       <mat-label>Фамилия</mat-label>
       <input
         matInput
@@ -56,7 +60,9 @@
         >Максимальное количество символов: 18</mat-error
       >
     </mat-form-field>
-    <mat-form-field appearance="outline">
+    <mat-form-field
+      appearance="outline"
+      [ngClass]="{ filled: createUser.get('email')!.valid }">
       <mat-label>E-mail</mat-label>
       <input
         matInput
@@ -71,7 +77,9 @@
         >Некорректный адрес</mat-error
       >
     </mat-form-field>
-    <mat-form-field appearance="outline">
+    <mat-form-field
+      appearance="outline"
+      [ngClass]="{ filled: createUser.get('phone')!.valid && createUser.get('phone')!.touched }">
       <mat-label>Телефон</mat-label>
       <input
         matInput
