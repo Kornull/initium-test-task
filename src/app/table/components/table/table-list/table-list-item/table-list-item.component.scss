@@ -54,13 +54,13 @@
   &-btn {
     cursor: pointer;
     background: none;
-    color: $default-btn;
     padding: 0;
     min-width: 10px;
     border: none;
     height: auto;
-
+    
     &:hover {
+      color: $default-btn;
       text-decoration: underline;
     }
   }
