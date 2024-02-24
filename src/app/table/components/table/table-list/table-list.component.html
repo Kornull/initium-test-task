@@ -5,8 +5,9 @@
         color="primary"
         style="width: 36px"
         [checked]="allComplete"
-        [indeterminate]="someComplete()"
-        (change)="setAll($event.checked)">
+        [indeterminate]="isSomeComlete"
+        (change)="setAll($event.checked)"
+        [disabled]="!userListData.users.length">
       </mat-checkbox>
       <app-table-list-header></app-table-list-header>
     </div>

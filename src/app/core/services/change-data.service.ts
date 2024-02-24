@@ -71,6 +71,7 @@ export class ChangeDataService {
 
   private changeList(dataList: UserInfo[]): void {
     this.clients.next(dataList);
+    this.selectedUsers.next([]);
     this.storeService.setClientsToLocalStore(dataList);
   }
 }
