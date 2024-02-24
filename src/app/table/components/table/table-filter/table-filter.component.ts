@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
+import { tap } from 'rxjs';
 
-import { FilterNameService } from 'src/app/core/services';
+import { FilterNameService, ChangeDataService } from 'src/app/core/services';
 
 @Component({
   selector: 'app-table-filter',
@@ -10,7 +11,18 @@ import { FilterNameService } from 'src/app/core/services';
 export class TableFilterComponent {
   filterByTitle: string = '';
 
-  constructor(private filterName: FilterNameService) {}
+  isDisabledFilter: boolean = true;
+
+  constructor(
+    private filterName: FilterNameService,
+    private changeData: ChangeDataService
+  ) {
+    changeData.clients$
+      .pipe(
+        tap(clientsList => (this.isDisabledFilter = clientsList.length === 0))
+      )
+      .subscribe();
+  }
 
   onTitleSort(): void {
     this.filterName.setNameSort(this.filterByTitle);

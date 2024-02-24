@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { SortingService } from 'src/app/core/services';
+import { tap } from 'rxjs';
+import { ChangeDataService, SortingService } from 'src/app/core/services';
 
 @Component({
   selector: 'app-table-sort',
@@ -9,7 +10,18 @@ import { SortingService } from 'src/app/core/services';
 export class TableSortComponent {
   selected: string = 'default';
 
-  constructor(private sortingService: SortingService) {}
+  isDisabledSorting: boolean = true;
+
+  constructor(
+    private sortingService: SortingService,
+    private changeData: ChangeDataService
+  ) {
+    changeData.clients$
+      .pipe(
+        tap(clientsList => (this.isDisabledSorting = clientsList.length === 0))
+      )
+      .subscribe();
+  }
 
   changeSelect() {
     this.sortingService.setSortingData(this.selected);

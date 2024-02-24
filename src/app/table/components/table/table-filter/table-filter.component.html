@@ -9,6 +9,7 @@
       name="parameterValue"
       [(ngModel)]="filterByTitle"
       (keyup)="onTitleSort()"
-      autocomplete="off" />
+      autocomplete="off"
+      [disabled]="isDisabledFilter" />
   </form>
 </div>
