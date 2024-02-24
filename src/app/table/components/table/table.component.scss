@@ -6,10 +6,10 @@
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  max-height: 88vh;
+  max-height: 90vh;
   background: $white;
   border-radius: 24px;
-  overflow: auto;
+  overflow: hidden;
 
   &-btns {
     position: fixed;
