@@ -1,5 +1,5 @@
-import { map, tap } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+import { map, tap } from 'rxjs';
 
 import {
   ChangeDataService,

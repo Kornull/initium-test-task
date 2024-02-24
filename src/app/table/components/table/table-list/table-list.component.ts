@@ -1,8 +1,8 @@
 import { ChangeDataService } from 'src/app/core/services';
 import { Component, Input, OnInit } from '@angular/core';
+import { tap } from 'rxjs';
 
 import { ListData, UserInfo } from 'src/app/core/store';
-import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-table-list',
