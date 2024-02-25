@@ -20,7 +20,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 94px;
     width: 42%;
     padding: 0;
 
@@ -31,6 +30,7 @@
     }
   }
   &-name {
+    gap: 88px;
     &--info {
       text-align: left;
     }
@@ -38,6 +38,7 @@
 
   &-contacts {
     justify-content: space-between;
+    gap: 94px;
 
     &--info {
       text-align: right;
@@ -58,7 +59,7 @@
     min-width: 10px;
     border: none;
     height: auto;
-    
+
     &:hover {
       color: $default-btn;
       text-decoration: underline;

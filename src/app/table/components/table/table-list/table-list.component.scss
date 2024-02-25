@@ -1,15 +1,42 @@
 @import '../../../../../scss/variables';
-.list {
-  max-height: 726px;
-  overflow: hidden;
-  overflow-y: auto;
-  padding-bottom: 4px;
-}
 
 .section-list {
   position: relative;
   width: 100%;
+  max-height: calc(100vh - 152px);
+  overflow: hidden;
+  overflow-y: auto;
 }
+
+.list {
+  overflow: hidden;
+  overflow-y: auto;
+  padding-bottom: 4px;
+
+  &-header {
+    position: sticky;
+    top: 0;
+    background: $white;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    z-index: 1;
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 48px;
+    border-top: 1px solid $disabled-btn;
+    transition: background 0.2s linear;
+
+    &:has(.list-btn:hover) {
+      background: #dfecfc89;
+    }
+  }
+}
+
 .item-block {
   display: flex;
   align-items: center;
@@ -19,33 +46,12 @@
   gap: 10px;
 }
 
-.list-item {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 48px;
-  border-top: 1px solid $disabled-btn;
-  transition: background 0.2s linear;
-
-  &:has(.list-btn:hover) {
-    background: #dfecfc89;
-  }
-}
-.list-header {
-  position: sticky;
-  top: 0;
-  background: $white;
-  display: flex;
-  align-items: center;
-  height: 104px;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
-  padding: 60px 0 0;
-  z-index: 1;
-}
-
 .touched {
   background: #cee1f7b4;
+}
+
+:disabled {
+  pointer-events: none;
 }
 
 ::ng-deep
@@ -81,8 +87,4 @@ input {
       background-color: transparent !important;
     }
   }
-}
-
-:disabled {
-  pointer-events: none;
 }

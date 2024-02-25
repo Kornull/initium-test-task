@@ -4,7 +4,7 @@
     align-items: center;
     height: 52px;
   }
-  
+
   &-info {
     display: flex;
     align-items: center;
@@ -17,7 +17,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 94px;
+    gap: 88px;
     width: 42%;
     padding: 0;
 
@@ -31,10 +31,12 @@
     &--info {
       text-align: left;
     }
+    gap: 88px;
   }
 
   &-contacts {
     justify-content: space-between;
+    gap: 94px;
 
     &--info {
       text-align: right;
